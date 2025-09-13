@@ -1,0 +1,28 @@
+﻿@model List<SpaCrudNew24.Models.CourseModule>
+<table id="ExTable" class="table table-striped">
+    <thead>
+        <tr>
+            <td>Module Name</td>
+            <td>Duration</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <td>
+                    <input type="text" name="CourseModule[@i].ModuleName" value="@Model[i].ModuleName" />
+                </td>
+
+                <td>
+                    <input type="text" name="CourseModule[@i].Duration" value="@Model[i].Duration" />
+                </td>
+            }
+            <td>
+                <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete Module</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<input id="HIndex" type="hidden" value="@Model.Count"/>
